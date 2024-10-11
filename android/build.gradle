@@ -1,0 +1,83 @@
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath "com.android.tools.build:gradle:8.0.0"
+    }
+}
+
+def isNewArchitectureEnabled() {
+    return rootProject.hasProperty("newArchEnabled") && rootProject.getProperty("newArchEnabled") == "true"
+}
+
+apply plugin: "com.android.library"
+apply plugin: "maven-publish"
+
+if (isNewArchitectureEnabled()) {
+    apply plugin: "com.facebook.react"
+}
+
+def supportsNamespace() {
+    def parsed = com.android.Version.ANDROID_GRADLE_PLUGIN_VERSION.tokenize('.')
+    def major = parsed[0].toInteger()
+    def minor = parsed[1].toInteger()
+
+    // Namespace support was added in AGP 7.3.0
+    return (major == 7 && minor >= 3) || major >= 8
+}
+
+android {
+    if (supportsNamespace()) {
+        namespace "com.smartres.chainwaysensors"
+
+        sourceSets {
+            main {
+                manifest.srcFile "src/main/AndroidManifestNew.xml"
+            }
+        }
+    }
+
+    compileSdkVersion 33
+
+    defaultConfig {
+        minSdkVersion 21 // Ensure this matches the minimum requirement
+        targetSdkVersion 33 // Latest target SDK
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+        }
+    }
+
+    lint {
+        disable "GradleCompatible"
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+}
+
+repositories {
+    mavenCentral()
+    maven { url 'https://jitpack.io' }
+    google()
+}
+
+
+dependencies {
+    implementation 'com.github.oreste-abizera:SdkTest:0.0.1'
+    implementation "com.facebook.react:react-native:0.20.1"
+    implementation fileTree(dir: 'libs', include: ['*.*'])
+    //implementation files('libs/jxl.jar')
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.cardview:cardview:1.0.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+}
