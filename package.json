@@ -1,16 +1,16 @@
 {
   "name": "chainway-sensors",
   "version": "1.0.0",
-  "private": true,
+  "private": false,
   "scripts": {
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "lint": "eslint .",
-    "start": "react-native start",
+    "start": "react-native start"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/mzakk/chainway-sensors.git"
+    "url": "git+https://github.com/mzakk/chainway-sensors.git"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
@@ -37,13 +37,18 @@
   "keywords": [
     "rfid",
     "scanner",
-	"barcode-reader-2d",
+    "barcode-reader-2d",
     "c66-scanner-react-native",
     "uhf-scanner",
-	  "chainway"
+    "chainway"
   ],
   "author": "bigfuzz",
   "dependencies": {
     "react-native": "^0.75.4"
-  }
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mzakk/chainway-sensors/issues"
+  },
+  "homepage": "https://github.com/mzakk/chainway-sensors#readme"
 }
