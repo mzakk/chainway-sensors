@@ -41,7 +41,7 @@ To handle hardware key events on Android, you need to modify the `MainActivity.k
 
 ## Usage
 
-Here's how you can use the `uchainway-sensors` package in your React Native application:
+Here's how you can use the `chainway-sensors` package in your React Native application:
 
 1. **Import the module:**
 
