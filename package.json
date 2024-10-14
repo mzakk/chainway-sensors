@@ -8,6 +8,10 @@
     "lint": "eslint .",
     "start": "react-native start",
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mzakk/chainway-sensors.git"
+  },
   "devDependencies": {
     "@babel/core": "^7.20.0",
     "@babel/preset-env": "^7.20.0",
@@ -35,8 +39,8 @@
     "scanner",
 	"barcode-reader-2d",
     "c66-scanner-react-native",
-    "uhf-scanner"
-	"chainway"
+    "uhf-scanner",
+	  "chainway"
   ],
   "author": "bigfuzz",
   "dependencies": {
