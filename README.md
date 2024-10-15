@@ -1,5 +1,5 @@
 # chainway-sensors by Fuzz
-
+This library allows both the UHF reader and Barcode reader to be used. But at the moment I am too lazy to write a complete guide. Check out the index.ts file to get an idea of the functionalities.
 ## Getting Started
 
 ### Android Configuration
