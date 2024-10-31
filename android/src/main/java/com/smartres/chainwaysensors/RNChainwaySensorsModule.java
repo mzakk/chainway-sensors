@@ -32,9 +32,9 @@ public class RNChainwaySensorsModule extends ReactContextBaseJavaModule implemen
     private static final String UHF_READER_WRITE_ERROR = "UHF_READER_WRITE_ERROR";
     private static final String UHF_READER_OTHER_ERROR = "UHF_READER_OTHER_ERROR";
     public RFIDWithUHFUART mReader;
-    private Boolean mReaderStatus = false;
+    private boolean mReaderStatus = false;
     private List<String> scannedTags = new ArrayList<String>();
-    private Boolean uhfInventoryStatus = false;
+    private boolean uhfInventoryStatus = false;
     private final ReactApplicationContext reactContext;
     private static BarcodeDecoder barcodeDecoder = BarcodeFactory.getInstance().getBarcodeDecoder();
 
@@ -184,6 +184,7 @@ public class RNChainwaySensorsModule extends ReactContextBaseJavaModule implemen
     @ReactMethod
     public void startReadingTags(final Callback callback) {
         uhfInventoryStatus = mReader.startInventoryTag();
+        Log.d("UHF_TAG", "Inventory Status: " + uhfInventoryStatus);
         new TagThread().start();
         callback.invoke(uhfInventoryStatus);
     }
@@ -219,13 +220,13 @@ public class RNChainwaySensorsModule extends ReactContextBaseJavaModule implemen
     }
 
     class UhfReaderPower extends Thread {
-        Boolean powerOn;
+        boolean powerOn;
         
         public UhfReaderPower() {
             this.powerOn = true;
         }
 
-        public UhfReaderPower(Boolean powerOn) {
+        public UhfReaderPower(boolean powerOn) {
             this.powerOn = powerOn;
         }
 
