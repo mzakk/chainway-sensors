@@ -4,6 +4,8 @@ This REACT-NATIVE library allows both the UHF reader and Barcode reader in chain
 
 ### Android Configuration
 
+Add package from npm to your project: `npm install chainway-sensors`
+
 To handle hardware key events on Android, you need to modify the `MainActivity.kt` file in your Android project. Follow these steps:
 
 1. **Open `MainActivity.kt` located in `android/app/src/main/kotlin/com/yourapp/`**
