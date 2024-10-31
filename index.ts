@@ -24,7 +24,7 @@ const initializeUhfReader: initializeUhfReader = () =>
   RNChainwaySensors.initializeReader();
 
 const initializeBarcodeReader: initializeBarcodeReader = () =>
-  RNChainwaySensors.initiBarcodeReader();
+  RNChainwaySensors.initBarcodeReader();
 
 const deInitializeUhfReader: deInitializeUhfReader = () =>
   RNChainwaySensors.deInitializeReader();
