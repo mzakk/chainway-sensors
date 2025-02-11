@@ -1,6 +1,6 @@
 {
   "name": "chainway-sensors",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "private": false,
   "scripts": {
     "android": "react-native run-android",
