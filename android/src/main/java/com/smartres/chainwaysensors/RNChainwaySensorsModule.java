@@ -205,9 +205,9 @@ public class RNChainwaySensorsModule extends ReactContextBaseJavaModule implemen
             Boolean uhfWriteState = mReader.writeData("00000000", IUHF.Bank_EPC, 2, 6, epc);
 
             if(uhfWriteState)
-            promise.resolve(uhfWriteState);
-        else
-            promise.reject(UHF_READER_WRITE_ERROR, "Can't Write Data");
+                promise.resolve(uhfWriteState);
+            else
+                promise.reject(UHF_READER_WRITE_ERROR, "Can't Write Data");
         }
         else {
         promise.reject(UHF_READER_WRITE_ERROR, "Invalid Data"); 
@@ -309,6 +309,7 @@ public class RNChainwaySensorsModule extends ReactContextBaseJavaModule implemen
                 //tag[1] = mReader.convertUiiToEPC(tag[1]);
                 String[] tagData = {tag.getEPC(), tag.getRssi()};
                 sendEvent("UHF_TAG", RNChainwaySensorsModule.convertArrayToWritableArray(tagData));
+                Log.d("UHF_TAG", "Tag Found: " + RNChainwaySensorsModule.convertArrayToWritableArray(tagData));
             }
         }
 
@@ -317,6 +318,7 @@ public class RNChainwaySensorsModule extends ReactContextBaseJavaModule implemen
                 scannedTags.add(tid.getEPC());
                 String[] tagData = {tid.getEPC(), tid.getRssi()};
                 sendEvent("UHF_TAG", RNChainwaySensorsModule.convertArrayToWritableArray(tagData));
+                Log.d("UHF_TAG", "Tag Found: " + RNChainwaySensorsModule.convertArrayToWritableArray(tagData));
             }
         }
     }
